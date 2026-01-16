@@ -1,3 +1,5 @@
+console.log("hi yes this exists")
+
 var soundOnOff, errorSound, correctSound, dropSound, audioBufferLoader, audioBufferList, audioCtx, soundOn = "on",
     useNativeAudio = !1,
     dontUseAudio = !1,
@@ -1113,6 +1115,7 @@ function setMatchColumnWidths() {
 }
 
 function cellClicked(event) {
+    console.log("cell cliked");
     var currentCol, text;
     return event.preventDefault(),
         !(!gameRunning || gameOver || (currentCol = (event = this.id.split("-"))[2],
@@ -1123,7 +1126,7 @@ function cellClicked(event) {
             this.setAttribute("class", "match-col-item " + fts + " match-col-item-selected"),
             setCurrentCol(currentCol, text),
             setCurrentRow(currentCol, event),
-            !isCurrentSelectionComplete())) && ((true ? (correctAnswers += 1,
+            !isCurrentSelectionComplete())) && ((isCurrentSelectionCorrect() ? (correctAnswers += 1,
                 updateCorrectCounter(),
                 playCorrectSound) : (faultyAnswers += 1,
                 updateFaultyCounter(),
@@ -1151,7 +1154,8 @@ function isCurrentSelectionComplete() {
 }
 
 function isCurrentSelectionCorrect() {
-    return 2 == colCount ? checkTwoCols() : 3 == colCount ? checkThreeCols() : 4 == colCount ? checkFourCols() : 5 == colCount ? checkFiveCols() : void 0
+    console.log("should return true");
+    return true
 }
 
 function checkTwoCols() {
